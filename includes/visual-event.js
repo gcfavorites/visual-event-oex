@@ -28,12 +28,12 @@ opera.extension.onmessage = function(e) {
 }; // end of onMessage listener
 
 function enableVisualEvent() {
-    if( typeof VisualEvent!='undefined' ) {
-        if ( VisualEvent.instance !== null ) {
-            VisualEvent.close();
+    if( typeof window.VisualEvent!='undefined' ) {
+        if ( window.VisualEvent.instance !== null ) {
+            window.VisualEvent.close();
         }
         else {
-            new VisualEvent();
+            new window.VisualEvent();
         }
     }
     else {
@@ -45,7 +45,7 @@ function enableVisualEvent() {
  * Loading of Visual Event library
  */
 function loadVisualEvent(window, document) {
-    if ( typeof VisualEvent_Loader == 'undefined' ) {
+    if ( typeof window.VisualEvent_Loader == 'undefined' ) {
 
         /**
         * VisualEvent_Loader is a class which will provide pre-loading of Javascript and CSS files
@@ -135,7 +135,7 @@ function loadVisualEvent(window, document) {
                 /* Store a static flag to let the VisualEvent instance know if jQuery was already available on
                 * the page or not - used in the "close" method
                 */
-                window.VisualEvent_Loader.jQueryPreLoaded = (typeof jQuery == 'undefined') ? false : true;
+                window.VisualEvent_Loader.jQueryPreLoaded = (typeof window.jQuery == 'undefined') ? false : true;
 
                 /* Start the polling for ready */
                 if ( typeof window.VisualEvent == 'object' ) {
@@ -209,8 +209,8 @@ function loadVisualEvent(window, document) {
                 var that = this,
                     tmp;
 
-                if ( typeof VisualEvent == 'function' &&
-                        typeof VisualEventSyntaxHighlighter == 'object' )
+                if ( typeof window.VisualEvent == 'function' &&
+                        typeof window.VisualEventSyntaxHighlighter == 'object' )
                 {
                     this._complete();
                 }
@@ -233,7 +233,7 @@ function loadVisualEvent(window, document) {
 
                 this.s.loadingComplete = true;
 
-                tmp = new VisualEvent(); // jsLint need to assign it to a var
+                tmp = new window.VisualEvent(); // jsLint need to assign it to a var
 
                 /* Tidy up our display */
                 document.body.removeChild( this.dom.loading );
@@ -250,7 +250,7 @@ function loadVisualEvent(window, document) {
     * the bookmarklet code (and is now - but is it for backwards compatability)
     */
     var tmp;
-    if ( typeof VisualEvent != 'undefined' )
+    if ( typeof window.VisualEvent != 'undefined' )
     {
         if ( window.VisualEvent.instance !== null ) {
             window.VisualEvent.close();
