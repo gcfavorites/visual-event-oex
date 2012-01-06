@@ -1,18 +1,39 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <script>
-       window.addEventListener("load", function(){
-        var theButton;
-        var ToolbarUIItemProperties = {
-          title: "Visual Event",
-          icon: "imgs/icon-off-18.png",
-        }
-        theButton = opera.contexts.toolbar.createItem(ToolbarUIItemProperties);
-        opera.contexts.toolbar.addItem(theButton);
-      }, false);
-    </script>
-  </head>
-  <body>
-  </body>
+    <head>
+        <script>
+        window.addEventListener("load", function(){
+            var button;
+            var toolbarUIItemProperties = {
+                title: "Visual Event",
+                icon: "imgs/icon-off-18.png",
+            }
+            button = opera.contexts.toolbar.createItem(toolbarUIItemProperties);
+            opera.contexts.toolbar.addItem(button);
+            button.addEventListener('click', buttonClicked, false);
+
+            function buttonClicked() {
+                var url = 'vendors/VisualEvent/VisualEvent_Loader.js';
+
+                if( typeof VisualEvent!='undefined' ) {
+                    if ( VisualEvent.instance !== null ) {
+                        VisualEvent.close();
+                    }
+                    else {
+                        new VisualEvent();
+                    }
+                }
+                else {
+                    var n=document.createElement('script');
+                    n.setAttribute('language','JavaScript');
+                    n.setAttribute('src',url+'?rand='+new Date().getTime());
+                    console.log(document.innerHTML);
+                    document.body.appendChild(n);
+                }
+            };
+        }, false);
+        </script>
+    </head>
+    <body>
+    </body>
 </html>
