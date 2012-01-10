@@ -31,12 +31,12 @@ opera.extension.onmessage = function(e) {
 }; // end of onMessage listener
 
 function enableVisualEvent() {
-    if( typeof VisualEvent!='undefined' ) {
-        if ( VisualEvent.instance !== null ) {
-            VisualEvent.close();
+    if( typeof window.VisualEvent!='undefined' ) {
+        if ( window.VisualEvent.instance !== null ) {
+            window.VisualEvent.close();
         }
         else {
-            new VisualEvent();
+            new window.VisualEvent();
         }
     }
     else {
@@ -48,7 +48,7 @@ function enableVisualEvent() {
  * Loading of Visual Event library
  */
 function loadVisualEvent(window, document) {
-    if ( typeof VisualEvent_Loader == 'undefined' ) {
+    if ( typeof window.VisualEvent_Loader == 'undefined' ) {
 
         /**
         * VisualEvent_Loader is a class which will provide pre-loading of Javascript and CSS files
@@ -61,10 +61,10 @@ function loadVisualEvent(window, document) {
         *  @example
         *      new VisualEvent_Loader();
         */
-        VisualEvent_Loader = function ()
+        window.VisualEvent_Loader = function ()
         {
             /* Sanity check */
-            if ( ! this instanceof VisualEvent_Loader ) {
+            if ( ! this instanceof window.VisualEvent_Loader ) {
                 alert( "VisualEvent loader warning: Must be initialised with the 'new' keyword." );
                 return;
             }
@@ -100,7 +100,7 @@ function loadVisualEvent(window, document) {
         };
 
 
-        VisualEvent_Loader.prototype = {
+        window.VisualEvent_Loader.prototype = {
             /**
             * Constrctor - show a loading element to the end user and then load up the various files
             * that are needed
@@ -138,10 +138,10 @@ function loadVisualEvent(window, document) {
                 /* Store a static flag to let the VisualEvent instance know if jQuery was already available on
                 * the page or not - used in the "close" method
                 */
-                VisualEvent_Loader.jQueryPreLoaded = (typeof jQuery == 'undefined') ? false : true;
+                window.VisualEvent_Loader.jQueryPreLoaded = (typeof window.jQuery == 'undefined') ? false : true;
 
                 /* Start the polling for ready */
-                if ( typeof VisualEvent == 'object' ) {
+                if ( typeof window.VisualEvent == 'object' ) {
                     this._pollReady();
                     return; // Don't need to load any files if its already loaded
                 }
@@ -156,7 +156,7 @@ function loadVisualEvent(window, document) {
                 */
                 initCss();
                 //this._loadFile( '/vendors/VisualEvent/VisualEvent-1325838720/css/VisualEvent.css', 'css' );
-                if ( typeof jQuery == 'undefined' ) {
+                if ( typeof window.jQuery == 'undefined' ) {
                     alert('Load jQuery');
                     //this._loadFile( '/vendors/VisualEvent/VisualEvent-1325838720/js/VisualEvent-jQuery.js', 'js' );
                 }
@@ -212,8 +212,8 @@ function loadVisualEvent(window, document) {
                 var that = this,
                     tmp;
 
-                if ( typeof VisualEvent == 'function' &&
-                        typeof VisualEventSyntaxHighlighter == 'object' )
+                if ( typeof window.VisualEvent == 'function' &&
+                        typeof window.VisualEventSyntaxHighlighter == 'object' )
                 {
                     this._complete();
                 }
@@ -236,14 +236,14 @@ function loadVisualEvent(window, document) {
 
                 this.s.loadingComplete = true;
 
-                tmp = new VisualEvent(); // jsLint need to assign it to a var
+                tmp = new window.VisualEvent(); // jsLint need to assign it to a var
 
                 /* Tidy up our display */
                 document.body.removeChild( this.dom.loading );
             }
         };
 
-        VisualEvent_Loader.jQueryPreLoaded = false;
+        window.VisualEvent_Loader.jQueryPreLoaded = false;
     } /* /typeof VisualEvent_Loader */
 
 
@@ -253,17 +253,17 @@ function loadVisualEvent(window, document) {
     * the bookmarklet code (and is now - but is it for backwards compatability)
     */
     var tmp;
-    if ( typeof VisualEvent != 'undefined' )
+    if ( typeof window.VisualEvent != 'undefined' )
     {
-        if ( VisualEvent.instance !== null ) {
-            VisualEvent.close();
+        if ( window.VisualEvent.instance !== null ) {
+            window.VisualEvent.close();
         }
         else {
-            tmp = new VisualEvent();
+            tmp = new window.VisualEvent();
         }
     }
     else {
-        tmp = new VisualEvent_Loader();
+        tmp = new window.VisualEvent_Loader();
     }
 
 }; // end of function loadVisualEvent()
