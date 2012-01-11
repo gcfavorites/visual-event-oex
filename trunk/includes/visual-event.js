@@ -289,7 +289,7 @@ function initCss() {
     document.getElementsByTagName('head')[0].appendChild(n);
 }; // end of function initCss()
 
-function initVisualEvent() {
+function initVisualEvent(jQuery) {
 
     /**
     * SyntaxHighlighter
@@ -418,17 +418,17 @@ function initVisualEvent() {
     window.VisualEvent = function ()
     {
         // Sanity check
-        if ( ! this instanceof VisualEvent ) {
+        if ( ! this instanceof window.VisualEvent ) {
             alert( "VisualEvent warning: Must be initialised with the 'new' keyword." );
             return;
         }
 
         // Only one instance of VisualEvent at a time, in the current running mode. So if there is a
         // current instance, shut it down first
-        if ( VisualEvent.instance !== null ) {
-            VisualEvent.instance.close();
+        if ( window.VisualEvent.instance !== null ) {
+            window.VisualEvent.instance.close();
         }
-        VisualEvent.instance = this;
+        window.VisualEvent.instance = this;
 
 
         /**
@@ -584,7 +584,7 @@ function initVisualEvent() {
     };
 
 
-    VisualEvent.prototype = {
+    window.VisualEvent.prototype = {
         /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
         * API methods
         */
@@ -601,11 +601,11 @@ function initVisualEvent() {
             $(this.dom.label).remove();
             $(this.dom.help).remove();
 
-            if ( typeof VisualEvent_Loader !== 'undefined' && !VisualEvent_Loader.jQueryPreLoaded ) {
+            if ( typeof window.VisualEvent_Loader !== 'undefined' && !window.VisualEvent_Loader.jQueryPreLoaded ) {
                 $.noConflict();
             }
 
-            VisualEvent.instance = null;
+            window.VisualEvent.instance = null;
         },
 
 
@@ -1504,7 +1504,7 @@ function initVisualEvent() {
     *  @default []
     *  @static
     */
-    VisualEvent.parsers = [];
+    window.VisualEvent.parsers = [];
 
 
     /**
@@ -1514,21 +1514,21 @@ function initVisualEvent() {
     *  @static
     *  @private
     */
-    VisualEvent.instance = null;
+    window.VisualEvent.instance = null;
 
 
     /**
     * Close Visual Event, removing all DOM elements and event handlers
     *  @static
     */
-    VisualEvent.close = function ()
+    window.VisualEvent.close = function ()
     {
-        VisualEvent.instance.close();
-        VisualEvent.instance = null;
+        window.VisualEvent.instance.close();
+        window.VisualEvent.instance = null;
     };
 
 
-    })(window, document, jQuery);
+    })(window, document, window.jQuery);
 
     (function(window, document, $, VisualEvent){
 
@@ -1560,7 +1560,7 @@ function initVisualEvent() {
         return elements;
     } );
 
-    })(window, document, jQuery, VisualEvent);
+    })(window, document, window.jQuery, window.VisualEvent);
 
     (function(window, document, $, VisualEvent){
 
@@ -1605,7 +1605,7 @@ function initVisualEvent() {
         return elements;
     } );
 
-    })(window, document, jQuery, VisualEvent);
+    })(window, document, window.jQuery, window.VisualEvent);
 
     (function(window, document, $, VisualEvent){
 
@@ -1688,7 +1688,7 @@ function initVisualEvent() {
         return elements;
     } );
 
-    })(window, document, jQuery, VisualEvent);
+    })(window, document, window.jQuery, window.VisualEvent);
 
     (function(window, document, $, VisualEvent){
 
@@ -1783,7 +1783,7 @@ function initVisualEvent() {
         }
     };
 
-    })(window, document, jQuery, VisualEvent);
+    })(window, document, window.jQuery, window.VisualEvent);
 
     (function(window, document, $, VisualEvent){
 
@@ -1812,7 +1812,7 @@ function initVisualEvent() {
         return elements;
     } );
 
-    })(window, document, jQuery, VisualEvent);
+    })(window, document, window.jQuery, window.VisualEvent);
 
     (function(window, document, $, VisualEvent){
 
@@ -1849,7 +1849,7 @@ function initVisualEvent() {
         return elements;
     } );
 
-    })(window, document, jQuery, VisualEvent);
+    })(window, document, window.jQuery, window.VisualEvent);
 
     (function(window, document, $, VisualEvent){
 
@@ -1884,7 +1884,7 @@ function initVisualEvent() {
         return elements;
     } );
 
-    })(window, document, jQuery, VisualEvent);
+    })(window, document, window.jQuery, window.VisualEvent);
 
     (function(window, document, $, VisualEvent){
 
@@ -1928,7 +1928,7 @@ function initVisualEvent() {
         return elements;
     } );
 
-    })(window, document, jQuery, VisualEvent);
+    })(window, document, window.jQuery, window.VisualEvent);
 
     
 }; // end of function initVisualEvent
