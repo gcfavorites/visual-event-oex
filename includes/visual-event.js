@@ -161,7 +161,6 @@ function loadVisualEvent(window, document) {
                     //this._loadFile( '/vendors/VisualEvent/VisualEvent-1325838720/js/VisualEvent-jQuery.js', 'js' );
                 }
                 else {
-                    alert('Load Visual Event1');
                     initVisualEvent(window.jQuery);
                     //this._loadFile( '/vendors/VisualEvent/VisualEvent-1325838720/js/VisualEvent.js', 'js' ));
                 }
@@ -878,19 +877,19 @@ function initVisualEvent(jQuery) {
             var elements=[], libraryListeners;
 
             /* Gather the events from the supported libraries */
-            for ( i=0, iLen=VisualEvent.parsers.length ; i<iLen ; i++ ) {
+            for ( i=0, iLen=window.VisualEvent.parsers.length ; i<iLen ; i++ ) {
                 // Given the millions of environments that the parsers will run in, it is quite possible one
                 // will hit an error - if it does, just ignore it and pass on.
                 try {
-                    libraryListeners = VisualEvent.parsers[i]();
+                    libraryListeners = window.VisualEvent.parsers[i]();
                     elements = elements.concat( libraryListeners );
                 } catch (e) {}
             }
 
             /* Add the API array information - if it is available */
-            if ( typeof VisualEvents == 'object' ) {
-                if ( this._ceckIntegrity( VisualEvents ) ) {
-                    elements = this._combineEvents( elements, VisualEvents );
+            if ( typeof window.VisualEvents == 'object' ) {
+                if ( this._ceckIntegrity( window.VisualEvents ) ) {
+                    elements = this._combineEvents( elements, window.VisualEvents );
                 }
             }
 
@@ -1127,7 +1126,7 @@ function initVisualEvent(jQuery) {
                 func.replace('&', '&amp;').replace('<', '&lt;').replace('<', '&gt;')
             );
 
-            VisualEventSyntaxHighlighter.highlight( null, document.getElementById('Event_code') );
+            window.VisualEventSyntaxHighlighter.highlight( null, document.getElementById('Event_code') );
         },
 
 
