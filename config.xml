@@ -8,5 +8,5 @@ Licensed under the Apache License, Version 2.0
 
 http://www.gnu.org/licenses/gpl-2.0.html</license>
   <author href="http://code.google.com/p/visual-event-oex/" email="victor.grischenko@gmail.com">Victor Grischenko</author>
-  <description xml:lang="en">This extension shows all event handlers on any web page. Visual Event Opera extension is just repack of Visual Event bookmarklet by Allan Jardine (http://www.sprymedia.co.uk/article/Visual+Event+2)</description>
+  <description xml:lang="en">This extension shows all event handlers on any web page. Visual Event Opera extension is port of original Visual Event bookmarklet by Allan Jardine (http://www.sprymedia.co.uk/article/Visual+Event+2)</description>
 </widget>
