@@ -497,6 +497,7 @@ function initVisualEvent(jQuery) {
                     '<span class="Event_LabelClose">x</span>'+
                     '<span class="Event_LabelHelp">?</span>'+
                     'Visual Event <span class="Event_LabelBy">by <a href="http://sprymedia.co.uk/">Allan Jardine</a>.</span>'+
+                    'Ported by <span class="Event_LabelBy"><a href="mailto:victor.grischenko@gmail.com">Victor Grischenko</a>.</span>'+
                     '<span class="Event_LabelEvents"></span> events were found attached to '+
                     '<span class="Event_LabelNodes"></span> nodes. '+
                     '<span class="Event_LabelNonDom"></span> events were attached to elements not currently in the document.'+
@@ -567,8 +568,9 @@ function initVisualEvent(jQuery) {
                             '</tr>'+
                         '</table>'+
                         '<p>Visual Event is open source software (GPLv2). If you would like to contribute an '+
-                            'enhancement, please fork the project on '+
+                            'enhancement to original code, please fork the project on '+
                             '<a href="https://github.com/SpryMedia/VisualEvent">Github</a>!</p>'+
+                        '<p>Visual Event Opera Extension code is hosted on <a href="http://code.google.com/p/visual-event-oex/">Google Code</a>.</p>'+
                         '<p class="Event_HelpClose">Click anywhere to close this help box.</p>'+
                     '</div>'+
                 '</div>')[0],
