@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget xmlns="http://www.w3.org/ns/widgets" version="1.0" id="https://addons.opera.com/addons/extensions/details/visual-event/">
+  <name>Visual Event</name>
+  <icon src="imgs/icon-64.png"/>
+  <license>Copyright 2011 Victor Grischenko &lt;victor.grischenko@gmail.com&gt;
+
+Licensed under the GNU General Public License, Version 2.0
+
+http://www.gnu.org/licenses/gpl-2.0.html</license>
+  <author href="http://code.google.com/p/visual-event-oex/" email="victor.grischenko@gmail.com">Victor Grischenko</author>
+  <description xml:lang="en">Visual Event extension is advanced tool to develop reach web applications. It provides information of events attached to DOM-elements on HTML-page.</description>
+</widget>

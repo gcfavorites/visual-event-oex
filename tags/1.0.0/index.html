@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <script>
+        window.addEventListener("load", function(){
+            var button;
+            var toolbarUIItemProperties = {
+                disabled: true,
+                icon: "imgs/icon-off-18.png",
+                title: "Visual Event",
+            }
+            button = opera.contexts.toolbar.createItem(toolbarUIItemProperties);
+            opera.contexts.toolbar.addItem(button);
+            button.addEventListener('click', buttonClicked, false);
+
+            /**
+             * Based on cleanPages extension by QuHno
+             * (https://addons.opera.com/ru/addons/extensions/details/cleanpages/)
+             */
+            function buttonClicked() {
+                var tab = opera.extension.tabs.getFocused();
+                if (tab) {
+                    opera.extension.broadcastMessage(JSON.stringify(opera.extension.tabs.getFocused().url)+ '|' +  'VisualEvent-1.0');
+                    //button.disabled = true;
+                }
+            };
+            function toggleButton() {
+                var tab = opera.extension.tabs.getFocused();
+                if (tab) {
+                    button.disabled = false;
+                } else {
+                    button.disabled = true;
+                }
+            }
+
+            // Enable the button when a tab is ready.
+            opera.extension.onconnect = toggleButton;
+            opera.extension.tabs.onfocus = toggleButton;
+            opera.extension.tabs.onblur = toggleButton;
+        }, false);
+        </script>
+    </head>
+    <body>
+    </body>
+</html>
